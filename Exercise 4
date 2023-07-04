@@ -9,6 +9,7 @@ radius = 25
 
 y, x = np.ogrid[:image.shape[0], :image.shape[1]]
 #create a mask that represent the circle
+#if the sum distances along x-axis and y-axis is less than or equal to the squared radius the pixel is marked true in the mask
 mask = (x - center_x) ** 2 + (y - center_y) ** 2 <= radius ** 2
 #set pixels in mask to white
 image[mask] = 255
