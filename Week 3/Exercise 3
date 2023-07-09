@@ -1,3 +1,7 @@
+import sys
+assert sys.version_info >= (3, 7)
+
+import numpy as np
 import cv2 as cv
 
 cap = cv.VideoCapture("videos/img_pexels.mp4")
