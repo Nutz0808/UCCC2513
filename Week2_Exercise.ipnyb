@@ -1,0 +1,38 @@
+#Exercise 3
+import numpy as np
+
+my_arr = np.arange(10)
+print(my_arr)
+my_arr[4:7] = 25
+print(my_arr)
+arr_slice = my_arr[4:7].copy()
+#arr_slice will be independent of my_arr, can modify arr_slice without affecting my_arr
+#if without using copy() then it will affect my_arr
+ # Change the first element of arr_slice to -1
+arr_slice[0]= -1
+
+print(arr_slice)
+print(my_arr)
+
+
+
+
+#Exercise 4
+import matplotlib.pyplot as plt
+
+#create blank image
+image = np.zeros((200, 200))
+center_x, center_y = np.array(image.shape) // 2
+#set radius of circle
+radius = 25 
+
+y, x = np.ogrid[:image.shape[0], :image.shape[1]]
+#create a mask that represent the circle
+#if the sum distances along x-axis and y-axis is less than or equal to the squared radius the pixel is marked true in the mask
+mask = (x - center_x) ** 2 + (y - center_y) ** 2 <= radius ** 2
+#set pixels in mask to white
+image[mask] = 255
+#show image
+plt.imshow(image, cmap='gray')
+plt.axis('off')
+plt.show()
